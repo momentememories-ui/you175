@@ -86,6 +86,8 @@
             position: relative; width: 300px; height: 300px;
             border: 8px solid white; border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden;
+            background-color: #fff;
+            display: flex; align-items: center; justify-content: center;
         }
 
         /* --- PAGE 4: GALLERY GAME --- */
@@ -194,7 +196,7 @@
 
     <div id="page3" class="page">
         <div class="scratch-box">
-            <img src="photo7.jpg" style="width:100%; height:100%; object-fit:cover;">
+            <img src="photo7.jpg" style="width:100%; height:100%; object-fit:contain;">
             <canvas id="scratchCanvas" width="300" height="300" style="position:absolute; top:0; left:0; cursor:pointer;"></canvas>
         </div>
         <div style="margin-top: 15px; text-align: center; color: var(--accent); font-size: 1.1rem; font-weight: 400;">ลองขูดดูสิ</div>
@@ -319,7 +321,7 @@
                 for(let i=3; i<d.length; i+=4) if(d[i]===0) cleared++;
                 if(!finished && cleared/(300*300) >= 0.99) { // เมื่อขูดถึง 99%
                     finished = true;
-                    // ลบ Canvas ออกเพื่อให้เห็นรูปเต็มๆ และค้างไว้ 3 วินาทีก่อนเปลี่ยนหน้า
+                    // ซ่อน Canvas เพื่อเฉลยภาพทั้งหมด ค้างไว้ 3 วินาทีแล้วไปหน้าถัดไป
                     setTimeout(() => {
                         c.style.display = 'none';
                         setTimeout(() => goTo('page4'), 3000);
